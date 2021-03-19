@@ -1,40 +1,34 @@
-Symfony Demo Application
+Akonforms Forms for you ministry
 ========================
 
-The "Symfony Demo Application" is a reference application created to show how
-to develop applications following the [Symfony Best Practices][1].
+
 
 Requirements
 ------------
 
   * PHP 7.2.9 or higher;
-  * PDO-SQLite PHP extension enabled;
+  * PDO-Mysql PHP extension enabled;
   * and the [usual Symfony application requirements][2].
 
 Installation
 ------------
 
-[Download Symfony][4] to install the `symfony` binary on your computer and run
-this command:
+
 
 ```bash
-$ symfony new --demo my_project
+git clone https://github.com/gerMdz/akonforms.git
 ```
 
-Alternatively, you can use Composer:
 
-```bash
-$ composer create-project symfony/symfony-demo my_project
-```
 
 Usage
 -----
 
-There's no need to configure anything to run the application. If you have
-[installed Symfony][4] binary, run this command:
+
+
 
 ```bash
-$ cd my_project/
+$ cd akonforms/
 $ symfony serve
 ```
 
