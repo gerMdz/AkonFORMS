@@ -1,23 +1,18 @@
 <?php
-
-/*
- * This file is part of the Symfony package.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Serializable;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
+use Symfony\Component\Uid\Uuid;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @ORM\Table(name="symfony_demo_user")
+ * @ORM\Table(name="akon_user")
  *
  * Defines the properties of the User entity to represent the application users.
  * See https://symfony.com/doc/current/doctrine.html#creating-an-entity-class
@@ -27,15 +22,15 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
+ * @author Gerardo Montivero <gerardo.montivero@gmail.com>
  */
-class User implements UserInterface, \Serializable
+class User implements UserInterface, Serializable
 {
     /**
-     * @var int
-     *
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class=UuidV4Generator::class)
      */
     private $id;
 
@@ -78,7 +73,17 @@ class User implements UserInterface, \Serializable
      */
     private $roles = [];
 
-    public function getId(): ?int
+    /**
+     * @ORM\OneToMany(targetEntity=Cuestionario::class, mappedBy="user")
+     */
+    private $cuestionarios;
+
+    public function __construct()
+    {
+        $this->cuestionarios = new ArrayCollection();
+    }
+
+    public function getId(): ?Uuid
     {
         return $this->id;
     }
@@ -184,5 +189,40 @@ class User implements UserInterface, \Serializable
     {
         // add $this->salt too if you don't use Bcrypt or Argon2i
         [$this->id, $this->username, $this->password] = unserialize($serialized, ['allowed_classes' => false]);
+    }
+
+    public function getRolesAsString(): string
+    {
+        return implode(',', $this->roles);
+    }
+
+    /**
+     * @return Collection|Cuestionario[]
+     */
+    public function getCuestionarios(): Collection
+    {
+        return $this->cuestionarios;
+    }
+
+    public function addCuestionario(Cuestionario $cuestionario): self
+    {
+        if (!$this->cuestionarios->contains($cuestionario)) {
+            $this->cuestionarios[] = $cuestionario;
+            $cuestionario->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCuestionario(Cuestionario $cuestionario): self
+    {
+        if ($this->cuestionarios->removeElement($cuestionario)) {
+            // set the owning side to null (unless already changed)
+            if ($cuestionario->getUser() === $this) {
+                $cuestionario->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

@@ -30,12 +30,12 @@ use Symfony\Component\Form\FormView;
  */
 class TagsInputType extends AbstractType
 {
-    private $tags;
-
-    public function __construct(TagRepository $tags)
-    {
-        $this->tags = $tags;
-    }
+//    private $tags;
+//
+//    public function __construct(TagRepository $tags)
+//    {
+//        $this->tags = $tags;
+//    }
 
     /**
      * {@inheritdoc}
@@ -47,8 +47,8 @@ class TagsInputType extends AbstractType
             // We could create a custom transformer to do Collection <-> string in one step,
             // but here we're doing the transformation in two steps (Collection <-> array <-> string)
             // and reuse the existing CollectionToArrayTransformer.
-            ->addModelTransformer(new CollectionToArrayTransformer(), true)
-            ->addModelTransformer(new TagArrayToStringTransformer($this->tags), true)
+//            ->addModelTransformer(new CollectionToArrayTransformer(), true)
+//            ->addModelTransformer(new TagArrayToStringTransformer($this->tags), true)
         ;
     }
 
