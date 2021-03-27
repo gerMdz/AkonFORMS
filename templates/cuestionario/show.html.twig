@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cuestionario{% endblock %}
+
+{% block body %}
+    <h1>Cuestionario</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cuestionario.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ cuestionario.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ cuestionario.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>IsActivo</th>
+                <td>{{ cuestionario.isActivo ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Identificador</th>
+                <td>{{ cuestionario.identificador }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ cuestionario.createdAt ? cuestionario.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ cuestionario.updatedAt ? cuestionario.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('cuestionario_index') }}">back to list</a>
+
+    <a href="{{ path('cuestionario_edit', {'id': cuestionario.id}) }}">edit</a>
+
+    {{ include('cuestionario/_delete_form.html.twig') }}
+{% endblock %}

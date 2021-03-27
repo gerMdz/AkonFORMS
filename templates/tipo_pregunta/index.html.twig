@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TipoPregunta index{% endblock %}
+
+{% block body %}
+    <h1>TipoPregunta index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>CssClass</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tipo_preguntum in tipo_preguntas %}
+            <tr>
+                <td>{{ tipo_preguntum.id }}</td>
+                <td>{{ tipo_preguntum.type }}</td>
+                <td>{{ tipo_preguntum.nombre }}</td>
+                <td>{{ tipo_preguntum.descripcion }}</td>
+                <td>{{ tipo_preguntum.cssClass }}</td>
+                <td>{{ tipo_preguntum.createdAt ? tipo_preguntum.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ tipo_preguntum.updatedAt ? tipo_preguntum.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('tipo_pregunta_show', {'id': tipo_preguntum.id}) }}">show</a>
+                    <a href="{{ path('tipo_pregunta_edit', {'id': tipo_preguntum.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tipo_pregunta_new') }}">Create new</a>
+{% endblock %}

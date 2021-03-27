@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Pregunta{% endblock %}
+
+{% block body %}
+    <h1>Create new Pregunta</h1>
+
+    {{ include('pregunta/_form.html.twig') }}
+
+    <a href="{{ path('pregunta_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ValorRespuesta{% endblock %}
+
+{% block body %}
+    <h1>Edit ValorRespuesta</h1>
+
+    {{ include('valor_respuesta/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('valor_respuesta_index') }}">back to list</a>
+
+    {{ include('valor_respuesta/_delete_form.html.twig') }}
+{% endblock %}

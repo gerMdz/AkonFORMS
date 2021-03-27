@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cuestionario index{% endblock %}
+
+{% block body %}
+    <h1>Cuestionario index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>IsActivo</th>
+                <th>Identificador</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cuestionario in cuestionarios %}
+            <tr>
+                <td>{{ cuestionario.id }}</td>
+                <td>{{ cuestionario.nombre }}</td>
+                <td>{{ cuestionario.descripcion }}</td>
+                <td>{{ cuestionario.isActivo ? 'Yes' : 'No' }}</td>
+                <td>{{ cuestionario.identificador }}</td>
+                <td>{{ cuestionario.createdAt ? cuestionario.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ cuestionario.updatedAt ? cuestionario.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('cuestionario_show', {'id': cuestionario.id}) }}">show</a>
+                    <a href="{{ path('cuestionario_edit', {'id': cuestionario.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('cuestionario_new') }}">Create new</a>
+{% endblock %}

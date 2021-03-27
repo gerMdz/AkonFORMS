@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulario index{% endblock %}
+
+{% block body %}
+    <h1>Formulario index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formulario in formularios %}
+            <tr>
+                <td>{{ formulario.id }}</td>
+                <td>{{ formulario.createdAt ? formulario.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ formulario.updatedAt ? formulario.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('formulario_show', {'id': formulario.id}) }}">show</a>
+                    <a href="{{ path('formulario_edit', {'id': formulario.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('formulario_new') }}">Create new</a>
+{% endblock %}

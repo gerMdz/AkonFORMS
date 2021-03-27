@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Cuestionario{% endblock %}
+
+{% block body %}
+    <h1>Create new Cuestionario</h1>
+
+    {{ include('cuestionario/_form.html.twig') }}
+
+    <a href="{{ path('cuestionario_index') }}">back to list</a>
+{% endblock %}

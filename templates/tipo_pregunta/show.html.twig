@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TipoPregunta{% endblock %}
+
+{% block body %}
+    <h1>TipoPregunta</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tipo_preguntum.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ tipo_preguntum.type }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ tipo_preguntum.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ tipo_preguntum.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>CssClass</th>
+                <td>{{ tipo_preguntum.cssClass }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ tipo_preguntum.createdAt ? tipo_preguntum.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ tipo_preguntum.updatedAt ? tipo_preguntum.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tipo_pregunta_index') }}">back to list</a>
+
+    <a href="{{ path('tipo_pregunta_edit', {'id': tipo_preguntum.id}) }}">edit</a>
+
+    {{ include('tipo_pregunta/_delete_form.html.twig') }}
+{% endblock %}

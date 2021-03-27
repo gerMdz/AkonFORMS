@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pregunta index{% endblock %}
+
+{% block body %}
+    <h1>Pregunta index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Texto</th>
+                <th>Orden</th>
+                <th>IsActivo</th>
+                <th>Parametros</th>
+                <th>IsObligatoria</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for preguntum in preguntas %}
+            <tr>
+                <td>{{ preguntum.id }}</td>
+                <td>{{ preguntum.texto }}</td>
+                <td>{{ preguntum.orden }}</td>
+                <td>{{ preguntum.isActivo ? 'Yes' : 'No' }}</td>
+                <td>{{ preguntum.parametros }}</td>
+                <td>{{ preguntum.isObligatoria ? 'Yes' : 'No' }}</td>
+                <td>{{ preguntum.createdAt ? preguntum.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ preguntum.updatedAt ? preguntum.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('pregunta_show', {'id': preguntum.id}) }}">show</a>
+                    <a href="{{ path('pregunta_edit', {'id': preguntum.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('pregunta_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pregunta{% endblock %}
+
+{% block body %}
+    <h1>Pregunta</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ preguntum.id }}</td>
+            </tr>
+            <tr>
+                <th>Texto</th>
+                <td>{{ preguntum.texto }}</td>
+            </tr>
+            <tr>
+                <th>Orden</th>
+                <td>{{ preguntum.orden }}</td>
+            </tr>
+            <tr>
+                <th>IsActivo</th>
+                <td>{{ preguntum.isActivo ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Parametros</th>
+                <td>{{ preguntum.parametros }}</td>
+            </tr>
+            <tr>
+                <th>IsObligatoria</th>
+                <td>{{ preguntum.isObligatoria ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ preguntum.createdAt ? preguntum.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ preguntum.updatedAt ? preguntum.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('pregunta_index') }}">back to list</a>
+
+    <a href="{{ path('pregunta_edit', {'id': preguntum.id}) }}">edit</a>
+
+    {{ include('pregunta/_delete_form.html.twig') }}
+{% endblock %}
