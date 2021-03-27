@@ -24,7 +24,7 @@ use Symfony\Component\Uid\Uuid;
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  * @author Gerardo Montivero <gerardo.montivero@gmail.com>
  */
-class User implements UserInterface, Serializable
+class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -173,23 +173,23 @@ class User implements UserInterface, Serializable
         // $this->plainPassword = null;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function serialize(): string
-    {
-        // add $this->salt too if you don't use Bcrypt or Argon2i
-        return serialize([$this->id, $this->username, $this->password]);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function unserialize($serialized): void
-    {
-        // add $this->salt too if you don't use Bcrypt or Argon2i
-        [$this->id, $this->username, $this->password] = unserialize($serialized, ['allowed_classes' => false]);
-    }
+//    /**
+//     * {@inheritdoc}
+//     */
+//    public function serialize(): string
+//    {
+//        // add $this->salt too if you don't use Bcrypt or Argon2i
+//        return serialize([$this->id, $this->username, $this->password]);
+//    }
+//
+//    /**
+//     * {@inheritdoc}
+//     */
+//    public function unserialize($serialized): void
+//    {
+//        // add $this->salt too if you don't use Bcrypt or Argon2i
+//        [$this->id, $this->username, $this->password] = unserialize($serialized, ['allowed_classes' => false]);
+//    }
 
     public function getRolesAsString(): string
     {

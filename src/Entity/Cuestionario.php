@@ -6,16 +6,22 @@ use App\Repository\CuestionarioRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Uid\Ulid;
+use Symfony\Bridge\Doctrine\IdGenerator\UlidGenerator;
 
 /**
  * @ORM\Entity(repositoryClass=CuestionarioRepository::class)
  */
 class Cuestionario
 {
+    use TimestampableEntity;
+
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="ulid", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class=UlidGenerator::class)
      */
     private $id;
 
@@ -49,12 +55,18 @@ class Cuestionario
      */
     private $preguntas;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Formulario::class, mappedBy="cuestionario")
+     */
+    private $formularios;
+
     public function __construct()
     {
         $this->preguntas = new ArrayCollection();
+        $this->formularios = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId(): ?Ulid
     {
         return $this->id;
     }
@@ -143,6 +155,36 @@ class Cuestionario
             // set the owning side to null (unless already changed)
             if ($pregunta->getCuestionario() === $this) {
                 $pregunta->setCuestionario(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Formulario[]
+     */
+    public function getFormularios(): Collection
+    {
+        return $this->formularios;
+    }
+
+    public function addFormulario(Formulario $formulario): self
+    {
+        if (!$this->formularios->contains($formulario)) {
+            $this->formularios[] = $formulario;
+            $formulario->setCuestionario($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFormulario(Formulario $formulario): self
+    {
+        if ($this->formularios->removeElement($formulario)) {
+            // set the owning side to null (unless already changed)
+            if ($formulario->getCuestionario() === $this) {
+                $formulario->setCuestionario(null);
             }
         }
 
