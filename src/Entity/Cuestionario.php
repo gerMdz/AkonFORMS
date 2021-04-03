@@ -60,6 +60,16 @@ class Cuestionario
      */
     private $formularios;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Ministry::class, inversedBy="cuestionario")
+     */
+    private $ministry;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageFilename;
+
     public function __construct()
     {
         $this->preguntas = new ArrayCollection();
@@ -187,6 +197,30 @@ class Cuestionario
                 $formulario->setCuestionario(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMinistry(): ?Ministry
+    {
+        return $this->ministry;
+    }
+
+    public function setMinistry(?Ministry $ministry): self
+    {
+        $this->ministry = $ministry;
+
+        return $this;
+    }
+
+    public function getImageFilename(): ?string
+    {
+        return $this->imageFilename;
+    }
+
+    public function setImageFilename(?string $imageFilename): self
+    {
+        $this->imageFilename = $imageFilename;
 
         return $this;
     }

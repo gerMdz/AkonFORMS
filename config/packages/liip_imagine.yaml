@@ -1,0 +1,78 @@
+# See dos how to configure the bundle: https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html
+liip_imagine:
+    # valid drivers options include "gd" or "gmagick" or "imagick"
+    driver: "gd"
+    resolvers:
+        default:
+            web_path:
+                web_root: "%image_directory%"
+                cache_prefix: media/cache
+
+    filter_sets:
+        cache: ~
+
+        # the name of the "filter set"
+        thumb_120_90_75:
+
+            # adjust the image quality to 75%
+            quality: 75
+
+            # list of transformations to apply (the "filters")
+            filters:
+
+                # create a thumbnail: set size to 120x90 and use the "outbound" mode
+                # to crop the image when the size ratio of the input differs
+                thumbnail: { size: [ 120, 90 ], mode: outbound }
+
+                # create a 2px black border: center the thumbnail on a black background
+                # 4px larger to create a 2px border around the final image
+                background: { size: [ 124, 94 ], position: center, color: '#000000' }
+        squared_thumbnail_small:
+            filters:
+                thumbnail:
+                    size:          [200, 200]
+                    mode:          outbound
+                    allow_upscale: true
+        squared_thumbnail_100:
+            filters:
+                thumbnail:
+                    size:          [100, 100]
+                    mode:          outbound
+                    allow_upscale: true
+
+        squared_thumbnail_medium:
+            filters:
+                thumbnail:
+                    size:          [500, 500]
+                    mode:          outbound
+                    allow_upscale: true
+        squared_thumbnail_large:
+            filters:
+                thumbnail:
+                    size:          [540, 303]
+                    mode:          inset
+                    allow_upscale: true
+        squared_thumbnail_large_1920if:
+            filters:
+                thumbnail:
+                    size:          [1920, 1080]
+                    mode:          inset
+                    allow_upscale: false
+        squared_normal:
+            filters:
+                thumbnail:
+                    size:          [100%, 100%]
+                    mode:          outbound
+                    allow_upscale: true
+        squared_icon:
+            filters:
+                thumbnail:
+                    size:          [30, 30]
+                    mode:          outbound
+                    allow_upscale: true
+        squared_icon_70:
+            filters:
+                thumbnail:
+                    size:          [70, 70]
+                    mode:          outbound
+                    allow_upscale: true

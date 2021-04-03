@@ -47,4 +47,17 @@ class CuestionarioRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @param $ministry
+     * @return int|mixed|string
+     */
+    public function queryFindByMinistry($ministry)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.ministry = :val')
+            ->setParameter('val', $ministry)
+            ->orderBy('c.updatedAt', 'DESC')
+            ;
+    }
 }

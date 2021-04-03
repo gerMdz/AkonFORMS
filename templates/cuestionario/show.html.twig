@@ -35,6 +35,19 @@
                 <th>UpdatedAt</th>
                 <td>{{ cuestionario.updatedAt ? cuestionario.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    {% if (cuestionario.imageFilename != null) %}
+                        <img class="article-img" alt="{{ app.request.baseUrl }}"
+                             src="{{ cuestionario.imageFilename |imagine_filter('squared_thumbnail_small') }}">
+                        <br/>
+                        {{ cuestionario.imageFilename }}
+                    {% else %}
+                        No tiene imagen
+                    {% endif %}
+                </td>
+            </tr>
         </tbody>
     </table>
 

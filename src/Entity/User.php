@@ -78,6 +78,11 @@ class User implements UserInterface
      */
     private $cuestionarios;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Ministry::class, inversedBy="user")
+     */
+    private $ministry;
+
     public function __construct()
     {
         $this->cuestionarios = new ArrayCollection();
@@ -222,6 +227,18 @@ class User implements UserInterface
                 $cuestionario->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMinistry(): ?Ministry
+    {
+        return $this->ministry;
+    }
+
+    public function setMinistry(?Ministry $ministry): self
+    {
+        $this->ministry = $ministry;
 
         return $this;
     }

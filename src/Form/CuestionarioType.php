@@ -4,8 +4,10 @@ namespace App\Form;
 
 use App\Entity\Cuestionario;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Image;
 
 class CuestionarioType extends AbstractType
 {
@@ -16,9 +18,13 @@ class CuestionarioType extends AbstractType
             ->add('descripcion')
             ->add('isActivo')
             ->add('identificador')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('user')
+            ->add('image', FileType::class, [
+                'required' => false,
+                'mapped' => false,
+                'constraints' => [
+                    new Image(['maxSize' => '4096k'])
+                ],
+            ])
         ;
     }
 
