@@ -74,7 +74,7 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-     * @ORM\OneToMany(targetEntity=Cuestionario::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Cuestionario::class, mappedBy="autor")
      */
     private $cuestionarios;
 

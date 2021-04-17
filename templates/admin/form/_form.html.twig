@@ -19,8 +19,8 @@
     </button>
 
     {% if include_back_to_home_link|default(false) %}
-        <a href="{{ path('admin_post_index') }}" class="btn btn-link">
-            <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'action.back_to_list'|trans }}
+        <a href="{{ path('admin_cuestionario_index') }}" class="btn btn-link">
+            <i class="far fa-list-alt" aria-hidden="true"></i> {{ 'action.back_to_list'|trans }}
         </a>
     {% endif %}
 {{ form_end(form) }}

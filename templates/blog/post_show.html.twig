@@ -59,10 +59,10 @@
 {% endblock %}
 
 {% block sidebar %}
-    {% if is_granted('edit', post) %}
+    {% if is_granted('edit', cuestionario) %}
         <div class="section">
-            <a class="btn btn-lg btn-block btn-success" href="{{ path('admin_post_edit', {id: post.id}) }}">
-                <i class="fa fa-edit" aria-hidden="true"></i> {{ 'action.edit_post'|trans }}
+            <a class="btn btn-lg btn-block btn-success" href="{{ path('admin_cuestionario_edit', {id: cuestionario.id}) }}">
+                <i class="fa fa-edit" aria-hidden="true"></i> {{ 'action.edit_cuestionario'|trans }}
             </a>
         </div>
     {% endif %}
@@ -72,6 +72,6 @@
       to share common contents in different templates #}
     {{ parent() }}
 
-    {{ show_source_code(_self) }}
+{#    {{ show_source_code(_self) }}#}
     {{ include('blog/_rss.html.twig') }}
 {% endblock %}

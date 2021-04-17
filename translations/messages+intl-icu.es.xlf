@@ -76,9 +76,9 @@
                 <source>title.login</source>
                 <target>Acceso seguro</target>
             </trans-unit>
-            <trans-unit id="title.post_list">
-                <source>title.post_list</source>
-                <target>Listado de artículos</target>
+            <trans-unit id="title.cuestionario_list">
+                <source>title.cuestionario_list</source>
+                <target>Listado de cuestionarios</target>
             </trans-unit>
             <trans-unit id="title.edit_post">
                 <source>title.edit_post</source>
@@ -133,13 +133,13 @@
                 <source>label.cancel</source>
                 <target>Cancelar</target>
             </trans-unit>
-            <trans-unit id="action.create_post">
-                <source>action.create_post</source>
-                <target>Crear un nuevo artículo</target>
+            <trans-unit id="action.create_cuestionario">
+                <source>action.create_cuestionario</source>
+                <target>Nuevo cuestionario</target>
             </trans-unit>
-            <trans-unit id="label.create_post">
-                <source>label.create_post</source>
-                <target>Crear artículo</target>
+            <trans-unit id="label.create_cuestionario">
+                <source>label.create_cuestionario</source>
+                <target>Crear cuestionario</target>
             </trans-unit>
             <trans-unit id="label.save_and_create_new">
                 <source>label.save_and_create_new</source>
@@ -214,9 +214,9 @@
                 <source>label.actions</source>
                 <target>Acciones</target>
             </trans-unit>
-            <trans-unit id="title.post_new">
-                <source>title.post_new</source>
-                <target>Nuevo artículo</target>
+            <trans-unit id="title.cuestionario_new">
+                <source>title.cuestionario_new</source>
+                <target>Nuevo cuestionario</target>
             </trans-unit>
             <trans-unit id="action.edit_contents">
                 <source>action.edit_contents</source>
@@ -231,9 +231,9 @@
                 <source>menu.choose_language</source>
                 <target>Seleccionar idioma</target>
             </trans-unit>
-            <trans-unit id="menu.post_list">
-                <source>menu.post_list</source>
-                <target>Listado de artículos</target>
+            <trans-unit id="menu.cuestionario_list">
+                <source>menu.cuestionario_list</source>
+                <target>Listado de cuestionarios</target>
             </trans-unit>
             <trans-unit id="menu.back_to_blog">
                 <source>menu.back_to_blog</source>
@@ -268,14 +268,14 @@
                 <source>post.no_comments</source>
                 <target>Se el primero en añadir un comentario en este artículo.</target>
             </trans-unit>
-            <trans-unit id="post.no_posts_found">
-                <source>post.no_posts_found</source>
-                <target>No se ha encontrado ningún artículo.</target>
+            <trans-unit id="cuestionario.no_posts_found">
+                <source>cuestionario.no_posts_found</source>
+                <target>No se ha encontrado ningún cuestionario.</target>
             </trans-unit>
 
             <trans-unit id="help.app_description">
                 <source>help.app_description</source>
-                <target><![CDATA[Esta <strong>aplicación demo</strong> ha sido programada con el framework Symfony para mostrar la forma recomendada de programar aplicaciones Symfony.]]></target>
+                <target><![CDATA[Esta <strong>aplicación AkonFORMS</strong> ha sido programada con el framework Symfony.]]></target>
             </trans-unit>
             <trans-unit id="help.show_code">
                 <source>help.show_code</source>
@@ -311,7 +311,7 @@
             </trans-unit>
             <trans-unit id="help.more_information">
                 <source>help.more_information</source>
-                <target><![CDATA[Para más información, consulta la <a href="https://symfony.com/doc">documentación de Symfony</a>.]]></target>
+                <target><![CDATA[Para más información, consulta la <a href="https://germdz.github.io/akonforms/doc">documentación de AkonFORMS</a>.]]></target>
             </trans-unit>
             <trans-unit id="action.show_post">
                 <source>action.show_post</source>

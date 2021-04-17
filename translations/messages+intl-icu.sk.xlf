@@ -76,9 +76,9 @@
                 <source>title.login</source>
                 <target>Prihlásenie</target>
             </trans-unit>
-            <trans-unit id="title.post_list">
-                <source>title.post_list</source>
-                <target>Zoznam príspevkov</target>
+            <trans-unit id="title.cuestionario_list">
+                <source>title.cuestionario_list</source>
+                <target>Zoznam dotazníkov</target>
             </trans-unit>
             <trans-unit id="title.edit_post">
                 <source>title.edit_post</source>

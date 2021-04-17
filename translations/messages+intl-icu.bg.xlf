@@ -74,9 +74,9 @@
                 <source>title.login</source>
                 <target>Сигурен вход</target>
             </trans-unit>
-            <trans-unit id="title.post_list">
-                <source>title.post_list</source>
-                <target>Списък с публикации</target>
+            <trans-unit id="title.cuestionario_list">
+                <source>title.cuestionario_list</source>
+                <target>Списък с въпросници</target>
             </trans-unit>
             <trans-unit id="title.edit_post">
                 <source>title.edit_post</source>

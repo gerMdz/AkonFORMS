@@ -61,11 +61,11 @@ class BlogControllerTest extends WebTestCase
             'PHP_AUTH_USER' => 'jane_admin',
             'PHP_AUTH_PW' => 'kitten',
         ]);
-        $client->request('GET', '/en/admin/post/');
+        $client->request('GET', '/en/admin/cuestionario/');
 
         $this->assertResponseIsSuccessful();
         $this->assertSelectorExists(
-            'body#admin_post_index #main tbody tr',
+            'body#admin_cuestionario_index #main tbody tr',
             'The backend homepage displays all the available posts.'
         );
     }

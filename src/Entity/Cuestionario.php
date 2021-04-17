@@ -7,8 +7,19 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
-use Symfony\Component\Uid\Ulid;
 use Symfony\Bridge\Doctrine\IdGenerator\UlidGenerator;
+use Symfony\Component\Uid\Ulid;
+/**
+ *
+ *
+ * Defines the properties of the Cuestionario entity to represent the application cuestionarios.
+ * See https://symfony.com/doc/current/doctrine.html#creating-an-entity-class
+ *
+ * Tip: if you have an existing database, you can generate these entity class automatically.
+ * See https://symfony.com/doc/current/doctrine/reverse_engineering.html
+ *
+ * @author Gerardo Montivero <gerardo.montivero@gmail.com>
+ */
 
 /**
  * @ORM\Entity(repositoryClass=CuestionarioRepository::class)
@@ -46,11 +57,6 @@ class Cuestionario
     private $identificador;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="cuestionarios")
-     */
-    private $user;
-
-    /**
      * @ORM\OneToMany(targetEntity=Pregunta::class, mappedBy="cuestionario")
      */
     private $preguntas;
@@ -69,6 +75,17 @@ class Cuestionario
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imageFilename;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="cuestionarios")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $autor;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $publishedAt;
 
     public function __construct()
     {
@@ -129,17 +146,7 @@ class Cuestionario
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
 
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Pregunta[]
@@ -221,6 +228,30 @@ class Cuestionario
     public function setImageFilename(?string $imageFilename): self
     {
         $this->imageFilename = $imageFilename;
+
+        return $this;
+    }
+
+    public function getAutor(): ?User
+    {
+        return $this->autor;
+    }
+
+    public function setAutor(?User $autor): self
+    {
+        $this->autor = $autor;
+
+        return $this;
+    }
+
+    public function getPublishedAt(): ?\DateTimeInterface
+    {
+        return $this->publishedAt;
+    }
+
+    public function setPublishedAt(?\DateTimeInterface $publishedAt): self
+    {
+        $this->publishedAt = $publishedAt;
 
         return $this;
     }

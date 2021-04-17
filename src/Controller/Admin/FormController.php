@@ -11,10 +11,10 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Post;
-use App\Form\PostType;
-use App\Repository\PostRepository;
-use App\Security\PostVoter;
+use App\Entity\Cuestionario;
+use App\Form\CuestionarioType;
+use App\Repository\CuestionarioRepository;
+use App\Security\Voter\CuestionarioVoter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -23,7 +23,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Controller used to manage blog contents in the backend.
+ * Controller used to manage cuestionarios contents in the backend.
  *
  * Please note that the application backend is developed manually for learning
  * purposes. However, in your real Symfony application you should use any of the
@@ -31,19 +31,20 @@ use Symfony\Component\Routing\Annotation\Route;
  *
  * See http://knpbundles.com/keyword/admin
  *
- * @Route("/admin/post")
+ * @Route("/admin/cuestionario")
  * @IsGranted("ROLE_ADMIN")
  *
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
+ * @author Gerardo J. Montivero <gerardo.montivero@gmail.com>
  */
-class BlogController extends AbstractController
+class FormController extends AbstractController
 {
     /**
-     * Lists all Post entities.
+     * Lists all Cuestionarios entities.
      *
      * This controller responds to two different routes with the same URL:
-     *   * 'admin_post_index' is the route with a name that follows the same
+     *   * 'admin_cuestionario_index' is the route with a name that follows the same
      *     structure as the rest of the controllers of this class.
      *   * 'admin_index' is a nice shortcut to the backend homepage. This allows
      *     to create simpler links in the templates. Moreover, in the future we
@@ -51,19 +52,19 @@ class BlogController extends AbstractController
      *     the route name and therefore, without breaking any existing link.
      *
      * @Route("/", methods="GET", name="admin_index")
-     * @Route("/", methods="GET", name="admin_post_index")
+     * @Route("/", methods="GET", name="admin_cuestionario_index")
      */
-    public function index(PostRepository $posts): Response
+    public function index(CuestionarioRepository $cuestionarios): Response
     {
-        $authorPosts = $posts->findBy(['author' => $this->getUser()], ['publishedAt' => 'DESC']);
+        $autorCs = $cuestionarios->findBy(['autor' => $this->getUser()], ['publishedAt' => 'DESC']);
 
-        return $this->render('admin/blog/index.html.twig', ['posts' => $authorPosts]);
+        return $this->render('admin/form/index.html.twig', ['cuestionarios' => $autorCs]);
     }
 
     /**
-     * Creates a new Post entity.
+     * Creates a new Cuestionario entity.
      *
-     * @Route("/new", methods="GET|POST", name="admin_post_new")
+     * @Route("/new", methods="GET|POST", name="admin_cuestionario_new")
      *
      * NOTE: the Method annotation is optional, but it's a recommended practice
      * to constraint the HTTP methods each controller responds to (by default
@@ -71,11 +72,11 @@ class BlogController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $post = new Post();
-        $post->setAuthor($this->getUser());
+        $cuestionario = new Cuestionario();
+        $cuestionario->setAutor($this->getUser());
 
         // See https://symfony.com/doc/current/form/multiple_buttons.html
-        $form = $this->createForm(PostType::class, $post)
+        $form = $this->createForm(CuestionarioType::class, $cuestionario)
             ->add('saveAndCreateNew', SubmitType::class);
 
         $form->handleRequest($request);
@@ -86,65 +87,65 @@ class BlogController extends AbstractController
         // See https://symfony.com/doc/current/forms.html#processing-forms
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($post);
+            $em->persist($cuestionario);
             $em->flush();
 
             // Flash messages are used to notify the user about the result of the
             // actions. They are deleted automatically from the session as soon
             // as they are accessed.
             // See https://symfony.com/doc/current/controller.html#flash-messages
-            $this->addFlash('success', 'post.created_successfully');
+            $this->addFlash('success', 'cuestionario.created_successfully');
 
             if ($form->get('saveAndCreateNew')->isClicked()) {
-                return $this->redirectToRoute('admin_post_new');
+                return $this->redirectToRoute('admin_cuestionario_new');
             }
 
-            return $this->redirectToRoute('admin_post_index');
+            return $this->redirectToRoute('admin_cuestionario_index');
         }
 
-        return $this->render('admin/blog/new.html.twig', [
-            'post' => $post,
+        return $this->render('admin/form/new.html.twig', [
+            'cuestionario' => $cuestionario,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * Finds and displays a Post entity.
+     * Finds and displays a Cuestionario entity.
      *
-     * @Route("/{id<\d+>}", methods="GET", name="admin_post_show")
+     * @Route("/{id<\d+>}", methods="GET", name="admin_cuestionario_show")
      */
-    public function show(Post $post): Response
+    public function show(Cuestionario $cuestionario): Response
     {
         // This security check can also be performed
-        // using an annotation: @IsGranted("show", subject="post", message="Posts can only be shown to their authors.")
-        $this->denyAccessUnlessGranted(PostVoter::SHOW, $post, 'Posts can only be shown to their authors.');
+        // using an annotation: @IsGranted("show", subject="post", message="Cuestionario can only be shown to their authors.")
+        $this->denyAccessUnlessGranted(CuestionarioVoter::SHOW, $cuestionario, 'Cuestionario can only be shown to their authors.');
 
-        return $this->render('admin/blog/show.html.twig', [
-            'post' => $post,
+        return $this->render('admin/form/show.html.twig', [
+            'cuestionario' => $cuestionario,
         ]);
     }
 
     /**
-     * Displays a form to edit an existing Post entity.
+     * Displays a form to edit an existing Cuestionario entity.
      *
-     * @Route("/{id<\d+>}/edit", methods="GET|POST", name="admin_post_edit")
-     * @IsGranted("edit", subject="post", message="Posts can only be edited by their authors.")
+     * @Route("/{id<\d+>}/edit", methods="GET|POST", name="admin_cuestionario_edit")
+     * @IsGranted("edit", subject="cuestionario", message="Cuestionario can only be edited by their authors.")
      */
-    public function edit(Request $request, Post $post): Response
+    public function edit(Request $request, Cuestionario $cuestionario): Response
     {
-        $form = $this->createForm(PostType::class, $post);
+        $form = $this->createForm(CuestionarioType::class, $cuestionario);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', 'post.updated_successfully');
+            $this->addFlash('success', 'cuestionario.updated_successfully');
 
-            return $this->redirectToRoute('admin_post_edit', ['id' => $post->getId()]);
+            return $this->redirectToRoute('admin_cuestionario_edit', ['id' => $cuestionario->getId()]);
         }
 
-        return $this->render('admin/blog/edit.html.twig', [
-            'post' => $post,
+        return $this->render('admin/form/edit.html.twig', [
+            'cuestionario' => $cuestionario,
             'form' => $form->createView(),
         ]);
     }
@@ -152,26 +153,21 @@ class BlogController extends AbstractController
     /**
      * Deletes a Post entity.
      *
-     * @Route("/{id}/delete", methods="POST", name="admin_post_delete")
+     * @Route("/{id}/delete", methods="POST", name="admin_cuestionario_delete")
      * @IsGranted("delete", subject="post")
      */
-    public function delete(Request $request, Post $post): Response
+    public function delete(Request $request, Cuestionario $cuestionario): Response
     {
         if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
-            return $this->redirectToRoute('admin_post_index');
+            return $this->redirectToRoute('admin_cuestionario_index');
         }
 
-        // Delete the tags associated with this blog post. This is done automatically
-        // by Doctrine, except for SQLite (the database used in this application)
-        // because foreign key support is not enabled by default in SQLite
-        $post->getTags()->clear();
-
         $em = $this->getDoctrine()->getManager();
-        $em->remove($post);
+        $em->remove($cuestionario);
         $em->flush();
 
-        $this->addFlash('success', 'post.deleted_successfully');
+        $this->addFlash('success', 'cuestionario.deleted_successfully');
 
-        return $this->redirectToRoute('admin_post_index');
+        return $this->redirectToRoute('admin_cuestionario_index');
     }
 }
