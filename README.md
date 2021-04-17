@@ -8,7 +8,7 @@ Requirements
 
   * PHP 7.2.9 or higher;
   * PDO-Mysql PHP extension enabled;
-  * and the [usual Symfony application requirements][2].
+  * In addition to the [usual requirements of a Symfony application][2].
 
 Installation
 ------------
