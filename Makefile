@@ -37,6 +37,12 @@ prepare: ## Runs backend commands
 composer-install: ## Installs composer dependencies
 	U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_BE} composer install --no-scripts --no-interaction --optimize-autoloader
 
+yarn-install: ## Installs yarn dependencies
+	U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_BE} yarn install
+
+yarn-encore: ## Encore yarn dev
+	U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_BE} yarn encore dev
+
 migrations: ## Runs the migrations
 	U_ID=${UID} docker exec -it --user ${UID} ${DOCKER_BE} bin/console doctrine:migrations:migrate -n
 
