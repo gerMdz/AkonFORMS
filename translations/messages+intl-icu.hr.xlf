@@ -57,7 +57,7 @@
             </trans-unit>
             <trans-unit id="title.homepage">
                 <source>title.homepage</source>
-                <target><![CDATA[Dobrodošli na <strong>Symfony Demo</strong> web aplikaciju]]></target>
+                <target><![CDATA[Dobrodošli na <strong>Akon Forms</strong> web aplikaciju]]></target>
             </trans-unit>
             <trans-unit id="title.source_code">
                 <source>title.source_code</source>
@@ -296,7 +296,7 @@
 
             <trans-unit id="help.app_description">
                 <source>help.app_description</source>
-                <target><![CDATA[Ovo je <strong>demo web aplikacija</strong> napravljena unutar Symfony okvirne tehnologije, služi kako bi pokazala preporučeni način korištenja Symfony okvirne tehnologije.]]></target>
+                <target><![CDATA[Ovo je <strong>Akon Forms web aplikacija</strong> napravljena unutar Symfony okvirne tehnologije, služi kako bi pokazala preporučeni način korištenja Symfony okvirne tehnologije.]]></target>
             </trans-unit>
             <trans-unit id="help.show_code">
                 <source>help.show_code</source>
@@ -304,11 +304,11 @@
             </trans-unit>
             <trans-unit id="help.browse_app">
                 <source>help.browse_app</source>
-                <target><![CDATA[Pogledaj <strong>javni odjeljak</strong> demo aplikacije.]]></target>
+                <target><![CDATA[Pogledaj <strong>javni odjeljak</strong> Akon Forms aplikacije.]]></target>
             </trans-unit>
             <trans-unit id="help.browse_admin">
                 <source>help.browse_admin</source>
-                <target><![CDATA[Pogledaj <strong>administrativni odjeljak</strong> demo aplikacije.]]></target>
+                <target><![CDATA[Pogledaj <strong>administrativni odjeljak</strong> Akon Forms aplikacije.]]></target>
             </trans-unit>
             <trans-unit id="help.login_users">
                 <source>help.login_users</source>
@@ -337,11 +337,11 @@
 
             <trans-unit id="rss.title">
                 <source>rss.title</source>
-                <target>Symfony Demo blog</target>
+                <target>Akon Forms</target>
             </trans-unit>
             <trans-unit id="rss.description">
                 <source>rss.description</source>
-                <target>Najnoviji članci objavljeni na Symfony Demo Blog aplikaciji</target>
+                <target>Najnoviji članci objavljeni na Akon Forms aplikaciji</target>
             </trans-unit>
         </body>
     </file>

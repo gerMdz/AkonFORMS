@@ -104,7 +104,7 @@ class SourceCodeExtension extends AbstractExtension
         return [
             // Twig templates are not always stored in files (they can be stored
             // in a database for example). However, for the needs of the Symfony
-            // Demo app, we consider that all templates are stored in files and
+            // Akon Forms app, we consider that all templates are stored in files and
             // that their file paths can be obtained through the source context.
             'file_path' => $templateSource->getPath(),
             'starting_line' => 1,

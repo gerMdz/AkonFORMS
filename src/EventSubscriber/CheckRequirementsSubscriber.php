@@ -64,7 +64,7 @@ class CheckRequirementsSubscriber implements EventSubscriberInterface
         if ($event->getCommand() && \in_array($event->getCommand()->getName(), $commandNames, true)) {
             if ($this->isSQLitePlatform() && !\extension_loaded('sqlite3')) {
                 $io = new SymfonyStyle($event->getInput(), $event->getOutput());
-                $io->error('This command requires to have the "sqlite3" PHP extension enabled because, by default, the Symfony Demo application uses SQLite to store its information.');
+                $io->error('This command requires to have the "sqlite3" PHP extension enabled because, by default, the Akon Forms application uses SQLite to store its information.');
             }
         }
     }
@@ -85,7 +85,7 @@ class CheckRequirementsSubscriber implements EventSubscriberInterface
 
         // Check if SQLite is enabled
         if ($isDriverException && $this->isSQLitePlatform() && !\extension_loaded('sqlite3')) {
-            $event->setThrowable(new \Exception('PHP extension "sqlite3" must be enabled because, by default, the Symfony Demo application uses SQLite to store its information.'));
+            $event->setThrowable(new \Exception('PHP extension "sqlite3" must be enabled because, by default, the Akon Forms application uses SQLite to store its information.'));
         }
     }
 

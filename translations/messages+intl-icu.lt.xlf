@@ -58,7 +58,7 @@
 
             <trans-unit id="title.homepage">
                 <source>title.homepage</source>
-                <target><![CDATA[Sveiki atvyke į <strong>Symfony Demo</strong> puslapį]]></target>
+                <target><![CDATA[Sveiki atvyke į <strong>Akon Forms</strong> puslapį]]></target>
             </trans-unit>
             <trans-unit id="title.source_code">
                 <source>title.source_code</source>
@@ -361,7 +361,7 @@
 
             <trans-unit id="help.app_description">
                 <source>help.app_description</source>
-                <target><![CDATA[Tai yra <strong>demo puslapis</strong> sukurtas su Symfony Framework parodydant tinkamą Symfony panaudojimą.]]></target>
+                <target><![CDATA[Tai yra <strong>Akon Forms puslapis</strong> sukurtas su Symfony Framework parodydant tinkamą Symfony panaudojimą.]]></target>
             </trans-unit>
             <trans-unit id="help.show_code">
                 <source>help.show_code</source>
@@ -369,11 +369,11 @@
             </trans-unit>
             <trans-unit id="help.browse_app">
                 <source>help.browse_app</source>
-                <target><![CDATA[Naršyti <strong>public dalį</strong> demo puslapio.]]></target>
+                <target><![CDATA[Naršyti <strong>public dalį</strong> Akon Forms puslapio.]]></target>
             </trans-unit>
             <trans-unit id="help.browse_admin">
                 <source>help.browse_admin</source>
-                <target><![CDATA[Naršyti <strong>admin dalį</strong> demo puslapio.]]></target>
+                <target><![CDATA[Naršyti <strong>admin dalį</strong> Akon Forms puslapio.]]></target>
             </trans-unit>
             <trans-unit id="help.login_users">
                 <source>help.login_users</source>
@@ -423,11 +423,11 @@
 
             <trans-unit id="rss.title">
                 <source>rss.title</source>
-                <target>Symfony Demo blogas</target>
+                <target>Akon Forms</target>
             </trans-unit>
             <trans-unit id="rss.description">
                 <source>rss.description</source>
-                <target>Naujausi įrašai paskelbti Symfony Demo bloge</target>
+                <target>Naujausi įrašai paskelbti Akon Forms</target>
             </trans-unit>
 
             <trans-unit id="paginator.previous">

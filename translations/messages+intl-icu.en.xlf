@@ -58,7 +58,7 @@
 
             <trans-unit id="title.homepage">
                 <source>title.homepage</source>
-                <target><![CDATA[Welcome to the <strong>Symfony Demo</strong> application]]></target>
+                <target><![CDATA[Welcome to the <strong>Akon Forms</strong> application]]></target>
             </trans-unit>
             <trans-unit id="title.source_code">
                 <source>title.source_code</source>
@@ -361,7 +361,7 @@
 
             <trans-unit id="help.app_description">
                 <source>help.app_description</source>
-                <target><![CDATA[This is a <strong>demo application</strong> built in the Symfony Framework to illustrate the recommended way of developing Symfony applications.]]></target>
+                <target><![CDATA[This is a <strong>Akon Forms application</strong> built in the Symfony Framework to illustrate the recommended way of developing Symfony applications.]]></target>
             </trans-unit>
             <trans-unit id="help.show_code">
                 <source>help.show_code</source>
@@ -369,11 +369,11 @@
             </trans-unit>
             <trans-unit id="help.browse_app">
                 <source>help.browse_app</source>
-                <target><![CDATA[Browse the <strong>public section</strong> of the demo application.]]></target>
+                <target><![CDATA[Browse the <strong>public section</strong> of the Akon Forms application.]]></target>
             </trans-unit>
             <trans-unit id="help.browse_admin">
                 <source>help.browse_admin</source>
-                <target><![CDATA[Browse the <strong>admin backend</strong> of the demo application.]]></target>
+                <target><![CDATA[Browse the <strong>admin backend</strong> of the Akon Forms application.]]></target>
             </trans-unit>
             <trans-unit id="help.login_users">
                 <source>help.login_users</source>
@@ -423,11 +423,11 @@
 
             <trans-unit id="rss.title">
                 <source>rss.title</source>
-                <target>Symfony Demo blog</target>
+                <target>Akon Forms</target>
             </trans-unit>
             <trans-unit id="rss.description">
                 <source>rss.description</source>
-                <target>Most recent posts published on the Symfony Demo blog</target>
+                <target>Most recent posts published on the Akon Forms </target>
             </trans-unit>
 
             <trans-unit id="paginator.previous">

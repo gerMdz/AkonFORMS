@@ -21,7 +21,7 @@
 
             <trans-unit id="title.homepage">
                 <source>title.homepage</source>
-                <target><![CDATA[Benvingut/da a l'aplicació <strong>Symfony Demo</strong>]]></target>
+                <target><![CDATA[Benvingut/da a l'aplicació <strong>Akon Forms</strong>]]></target>
             </trans-unit>
             <trans-unit id="title.source_code">
                 <source>title.source_code</source>
@@ -222,7 +222,7 @@
 
             <trans-unit id="help.app_description">
                 <source>help.app_description</source>
-                <target><![CDATA[Aquesta <strong>aplicació demo</strong> ha estat programada amb el framework Symfony per mostrar la forma recomenada de programar aplicacions Symfony.]]></target>
+                <target><![CDATA[Aquesta <strong>aplicació Akon Forms</strong> ha estat programada amb el framework Symfony per mostrar la forma recomenada de programar aplicacions Symfony.]]></target>
             </trans-unit>
             <trans-unit id="help.show_code">
                 <source>help.show_code</source>
@@ -230,11 +230,11 @@
             </trans-unit>
             <trans-unit id="help.browse_app">
                 <source>help.browse_app</source>
-                <target><![CDATA[Accedir a la <strong>part pública</strong> de l'aplicació de demostració.]]></target>
+                <target><![CDATA[Accedir a la <strong>part pública</strong> de l'aplicació Akon Forms.]]></target>
             </trans-unit>
             <trans-unit id="help.browse_admin">
                 <source>help.browse_admin</source>
-                <target><![CDATA[Accedir a la <strong>part d'administració</strong> de l'aplicació de demostració.]]></target>
+                <target><![CDATA[Accedir a la <strong>part d'administració</strong> de l'aplicació Akon Forms.]]></target>
             </trans-unit>
             <trans-unit id="help.login_users">
                 <source>help.login_users</source>

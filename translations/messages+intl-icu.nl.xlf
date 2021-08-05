@@ -57,7 +57,7 @@
             </trans-unit>
             <trans-unit id="title.homepage">
                 <source>title.homepage</source>
-                <target><![CDATA[Welkom bij de <strong>Symfony Demo</strong> applicatie]]></target>
+                <target><![CDATA[Welkom bij de <strong>Akon Forms</strong> applicatie]]></target>
             </trans-unit>
             <trans-unit id="title.source_code">
                 <source>title.source_code</source>
@@ -324,11 +324,11 @@
             </trans-unit>
             <trans-unit id="help.browse_app">
                 <source>help.browse_app</source>
-                <target><![CDATA[Bekijk het <strong>publieke gedeelte</strong> van de demo applicatie.]]></target>
+                <target><![CDATA[Bekijk het <strong>publieke gedeelte</strong> van de Akon Forms applicatie.]]></target>
             </trans-unit>
             <trans-unit id="help.browse_admin">
                 <source>help.browse_admin</source>
-                <target><![CDATA[Bekijk het <strong>Beheerpaneel</strong> van de demo applicatie.]]></target>
+                <target><![CDATA[Bekijk het <strong>Beheerpaneel</strong> van de Akon Forms applicatie.]]></target>
             </trans-unit>
             <trans-unit id="help.login_users">
                 <source>help.login_users</source>
@@ -357,11 +357,11 @@
 
             <trans-unit id="rss.title">
                 <source>rss.title</source>
-                <target>Symfony Demo blog</target>
+                <target>Akon Forms</target>
             </trans-unit>
             <trans-unit id="rss.description">
                 <source>rss.description</source>
-                <target>De meest recente berichten, gepubliceerd op De Symfony Demo blog</target>
+                <target>De meest recente berichten, gepubliceerd op De Akon Forms</target>
             </trans-unit>
 
             <trans-unit id="paginator.previous">

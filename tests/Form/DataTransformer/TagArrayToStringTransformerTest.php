@@ -28,7 +28,7 @@ class TagArrayToStringTransformerTest extends TestCase
      */
     public function testCreateTheRightAmountOfTags(): void
     {
-        $tags = $this->getMockedTransformer()->reverseTransform('Hello, Demo, How');
+        $tags = $this->getMockedTransformer()->reverseTransform('Hello, Akon Forms, How');
 
         $this->assertCount(3, $tags);
         $this->assertSame('Hello', $tags[0]->getName());
@@ -42,8 +42,8 @@ class TagArrayToStringTransformerTest extends TestCase
     {
         $transformer = $this->getMockedTransformer();
 
-        $this->assertCount(3, $transformer->reverseTransform('Hello, Demo,, How'));
-        $this->assertCount(3, $transformer->reverseTransform('Hello, Demo, How,'));
+        $this->assertCount(3, $transformer->reverseTransform('Hello, Akon Forms,, How'));
+        $this->assertCount(3, $transformer->reverseTransform('Hello, Akon Forms, How,'));
     }
 
     /**

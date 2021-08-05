@@ -21,7 +21,7 @@
 
             <trans-unit id="title.homepage">
                 <source>title.homepage</source>
-                <target><![CDATA[Bine ai venit la aplicaţia <strong>Symfony Demo</strong>]]></target>
+                <target><![CDATA[Bine ai venit la aplicaţia <strong>Akon Forms</strong>]]></target>
             </trans-unit>
             <trans-unit id="title.source_code">
                 <source>title.source_code</source>
@@ -238,7 +238,7 @@
 
             <trans-unit id="help.app_description">
                 <source>help.app_description</source>
-                <target><![CDATA[Aceasta este o <strong>aplicaţie demonstrativă</strong> construită pe Platforma Symfony pentru a ilustra modul recomandat de a dezvolta aplicaţii Symfony.]]></target>
+                <target><![CDATA[Aceasta este o <strong>aplicaţie Akon Forms</strong> construită pe Platforma Symfony pentru a ilustra modul recomandat de a dezvolta aplicaţii Akon Forms.]]></target>
             </trans-unit>
             <trans-unit id="help.show_code">
                 <source>help.show_code</source>
@@ -246,11 +246,11 @@
             </trans-unit>
             <trans-unit id="help.browse_app">
                 <source>help.browse_app</source>
-                <target><![CDATA[Mergi la <strong>secţiunea publică</strong> a aplicaţiei demonstrative.]]></target>
+                <target><![CDATA[Mergi la <strong>secţiunea publică</strong> a aplicaţiei Akon Forms.]]></target>
             </trans-unit>
             <trans-unit id="help.browse_admin">
                 <source>help.browse_admin</source>
-                <target><![CDATA[Mergi la <strong>secţiunea administrativă</strong> a aplicaţiei demonstrative.]]></target>
+                <target><![CDATA[Mergi la <strong>secţiunea administrativă</strong> a aplicaţiei Akon Forms.]]></target>
             </trans-unit>
             <trans-unit id="help.login_users">
                 <source>help.login_users</source>
