@@ -3,9 +3,9 @@
 
 ### ¿Qué es AkonFORM?
 
-    Es una aplicación para crear formularios dinámicos rápidamente, sin tener que crear primero tablas en una base de datos.
-    Se da nombre a un cuestionario, se crean las secciones, se agregan las preguntas, se asignan los tipos de campos y listo.
-    Los visitantes pueden ingresar a los formularios que se guardarán por tipos de cuestionarios para poder luego acceder a sus datos.
+Es una aplicación para crear formularios dinámicos rápidamente, sin tener que crear primero tablas en una base de datos.
+Se da nombre a un cuestionario, se crean las secciones, se agregan las preguntas, se asignan los tipos de campos y listo.
+Los visitantes pueden ingresar a los formularios que se guardarán por tipos de cuestionarios para poder luego acceder a sus datos.
 
 ### ¿Porqué AkonFORM?
 
@@ -19,7 +19,7 @@ Aún estamos en desarrollo, y nada es funcional aún, pero las pruebas son prome
 
 ### Idea
     
-    Poder crear formularios a partir de tipos simples de campos
+>Poder crear formularios a partir de tipos simples de campos
     
     
 #### Tipos de campos
