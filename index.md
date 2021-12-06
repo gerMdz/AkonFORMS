@@ -10,11 +10,12 @@ Los visitantes pueden ingresar a los formularios que se guardarán por tipos de 
 ### ¿Porqué AkonFORM?
 
 Los datos son suyos y puede cambiar las cosas según lo necesite, modificando reportes, visualizaciones, y demás detalles que le parezcan importantes.
-Alternativa simple a Google Docs y Microsoft Docs.
+Alternativa simple a Google Forms y Microsoft Forms.
 
 ### Etapa
 
 Aún estamos en desarrollo, y nada es funcional aún, pero las pruebas son prometedoras y se pueden ir agregando más cosas.
+Ya el caso testigo está funcionando perfectamente. Y pronto se verán reflejados esos cambios aquí.
 
 
 ### Idea
