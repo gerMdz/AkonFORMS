@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Ramsey\Uuid\UuidInterface;
 use Ramsey\Uuid\Doctrine\UuidGenerator;
+use Symfony\Component\Uid\Uuid;
 
 /**
  * @ORM\Entity(repositoryClass=TipoPreguntaRepository::class)
@@ -20,7 +21,7 @@ class TipoPregunta
      * @var UuidInterface
      *
      * @ORM\Id
-     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\Column(type="string", unique=true)
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class=UuidGenerator::class)
      */
@@ -57,12 +58,12 @@ class TipoPregunta
         $this->pregunta = new ArrayCollection();
     }
 
-    public function getId(): ?UuidInterface
+    public function getId(): ?string
     {
         return $this->id;
     }
 
-    public function getType(): ?string
+    public function getType(): ?Uuid
     {
         return $this->type;
     }

@@ -8,6 +8,9 @@ liip_imagine:
                 web_root: "%image_directory%"
                 cache_prefix: media/cache
 
+    twig:
+        mode: lazy
+
     filter_sets:
         cache: ~
 

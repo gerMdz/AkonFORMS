@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CuestionarioRepository;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -15,7 +16,7 @@ use Symfony\Component\Uid\Ulid;
  * Defines the properties of the Cuestionario entity to represent the application cuestionarios.
  * See https://symfony.com/doc/current/doctrine.html#creating-an-entity-class
  *
- * Tip: if you have an existing database, you can generate these entity class automatically.
+ * Tip: if you have an existing database, you can generate this entity class automatically.
  * See https://symfony.com/doc/current/doctrine/reverse_engineering.html
  *
  * @author Gerardo Montivero <gerardo.montivero@gmail.com>
@@ -56,10 +57,6 @@ class Cuestionario
      */
     private $identificador;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Pregunta::class, mappedBy="cuestionario")
-     */
-    private $preguntas;
 
     /**
      * @ORM\OneToMany(targetEntity=Formulario::class, mappedBy="cuestionario")
@@ -87,10 +84,15 @@ class Cuestionario
      */
     private $publishedAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Section::class, mappedBy="cuestionario")
+     */
+    private $sections;
+
     public function __construct()
     {
-        $this->preguntas = new ArrayCollection();
         $this->formularios = new ArrayCollection();
+        $this->sections = new ArrayCollection();
     }
 
     public function getId(): ?Ulid
@@ -142,38 +144,6 @@ class Cuestionario
     public function setIdentificador(string $identificador): self
     {
         $this->identificador = $identificador;
-
-        return $this;
-    }
-
-
-
-    /**
-     * @return Collection|Pregunta[]
-     */
-    public function getPreguntas(): Collection
-    {
-        return $this->preguntas;
-    }
-
-    public function addPregunta(Pregunta $pregunta): self
-    {
-        if (!$this->preguntas->contains($pregunta)) {
-            $this->preguntas[] = $pregunta;
-            $pregunta->setCuestionario($this);
-        }
-
-        return $this;
-    }
-
-    public function removePregunta(Pregunta $pregunta): self
-    {
-        if ($this->preguntas->removeElement($pregunta)) {
-            // set the owning side to null (unless already changed)
-            if ($pregunta->getCuestionario() === $this) {
-                $pregunta->setCuestionario(null);
-            }
-        }
 
         return $this;
     }
@@ -244,14 +214,44 @@ class Cuestionario
         return $this;
     }
 
-    public function getPublishedAt(): ?\DateTimeInterface
+    public function getPublishedAt(): ?DateTimeInterface
     {
         return $this->publishedAt;
     }
 
-    public function setPublishedAt(?\DateTimeInterface $publishedAt): self
+    public function setPublishedAt(?DateTimeInterface $publishedAt): self
     {
         $this->publishedAt = $publishedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Section[]
+     */
+    public function getSections(): Collection
+    {
+        return $this->sections;
+    }
+
+    public function addSection(Section $section): self
+    {
+        if (!$this->sections->contains($section)) {
+            $this->sections[] = $section;
+            $section->setCuestionario($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSection(Section $section): self
+    {
+        if ($this->sections->removeElement($section)) {
+            // set the owning side to null (unless already changed)
+            if ($section->getCuestionario() === $this) {
+                $section->setCuestionario(null);
+            }
+        }
 
         return $this;
     }

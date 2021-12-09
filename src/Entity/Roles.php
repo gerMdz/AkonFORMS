@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\RolesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Doctrine\UuidGenerator;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * @ORM\Entity(repositoryClass=RolesRepository::class)
@@ -11,10 +13,14 @@ use Doctrine\ORM\Mapping as ORM;
 class Roles
 {
     /**
+     * @var UuidInterface
+     *
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class=UuidGenerator::class)
      */
+
     private $id;
 
     /**
@@ -36,17 +42,18 @@ class Roles
      * @ORM\Column(type="boolean")
      */
     private $isActivo;
-public function __construct()
-{
-    $this->isActivo = true;
-}
+
+    public function __construct()
+    {
+        $this->isActivo = true;
+    }
 
     public function __toString()
     {
         return $this->identificador;
     }
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }

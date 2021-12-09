@@ -9,10 +9,12 @@
             "email": "gerardo.montivero@gmail.com"
         },
         {
-            "name": "Grape Web Services",
-            "homepage": "https://ar-gws.com"
+            "name": "Ascendig ",
+            "homepage": "https://ascendig.ar"
         }
     ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "replace": {
         "symfony/polyfill-php70": "*",
         "symfony/polyfill-php72": "*"
@@ -42,17 +44,19 @@
         "symfony/mailer": "^5.2",
         "symfony/monolog-bundle": "^3.1",
         "symfony/polyfill-intl-messageformatter": "^1.12",
-        "symfony/security-bundle": "^5.2",
+        "symfony/security-bundle": "5.4.*",
         "symfony/string": "^5.2",
         "symfony/translation": "^5.2",
-        "symfony/twig-pack": "^1.0",
+        "symfony/twig-bundle": "^5.2",
         "symfony/uid": "^5.2",
         "symfony/validator": "^5.2",
         "symfony/webpack-encore-bundle": "^1.4",
         "symfony/yaml": "^5.2",
         "tgalopin/html-sanitizer-bundle": "^1.2",
+        "twig/extra-bundle": "^2.12|^3.0",
         "twig/intl-extra": "^3.0",
-        "twig/markdown-extra": "^3.0"
+        "twig/markdown-extra": "^3.0",
+        "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
         "dama/doctrine-test-bundle": "^6.2",
@@ -101,7 +105,8 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": true
+            "allow-contrib": true,
+            "require": "5.4.*"
         }
     }
 }

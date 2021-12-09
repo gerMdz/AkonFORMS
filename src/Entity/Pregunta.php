@@ -20,7 +20,7 @@ class Pregunta
      * @var UuidInterface
      *
      * @ORM\Id
-     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\Column(type="string", unique=true)
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class=UuidGenerator::class)
      */
@@ -67,12 +67,17 @@ class Pregunta
      */
     private $tipoPregunta;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Section::class, inversedBy="preguntas")
+     */
+    private $section;
+
     public function __construct()
     {
         $this->valorRespuestas = new ArrayCollection();
     }
 
-    public function getId(): UuidInterface
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -187,6 +192,18 @@ class Pregunta
     public function setTipoPregunta(?TipoPregunta $tipoPregunta): self
     {
         $this->tipoPregunta = $tipoPregunta;
+
+        return $this;
+    }
+
+    public function getSection(): ?Section
+    {
+        return $this->section;
+    }
+
+    public function setSection(?Section $section): self
+    {
+        $this->section = $section;
 
         return $this;
     }

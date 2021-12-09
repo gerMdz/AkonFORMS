@@ -1,14 +1,16 @@
 <?php
+
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Serializable;
+use Ramsey\Uuid\Doctrine\UuidGenerator;
+use Ramsey\Uuid\UuidInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
-use Symfony\Component\Uid\Uuid;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -17,21 +19,24 @@ use Symfony\Component\Uid\Uuid;
  * Defines the properties of the User entity to represent the application users.
  * See https://symfony.com/doc/current/doctrine.html#creating-an-entity-class
  *
- * Tip: if you have an existing database, you can generate these entity class automatically.
+ * Tip: if you have an existing database, you can generate this entity class automatically.
  * See https://symfony.com/doc/current/doctrine/reverse_engineering.html
  *
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  * @author Gerardo Montivero <gerardo.montivero@gmail.com>
  */
-class User implements UserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
+     * @var UuidInterface
+     *
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)
      * @ORM\GeneratedValue(strategy="CUSTOM")
-     * @ORM\CustomIdGenerator(class=UuidV4Generator::class)
+     * @ORM\CustomIdGenerator(class=UuidGenerator::class)
      */
+
     private $id;
 
     /**
@@ -88,7 +93,7 @@ class User implements UserInterface
         $this->cuestionarios = new ArrayCollection();
     }
 
-    public function getId(): ?Uuid
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -161,7 +166,7 @@ class User implements UserInterface
     public function getSalt(): ?string
     {
         // We're using bcrypt in security.yaml to encode the password, so
-        // the salt value is built-in and and you don't have to generate one
+        // the salt value is built-in, and you don't have to generate one
         // See https://en.wikipedia.org/wiki/Bcrypt
 
         return null;
@@ -213,7 +218,7 @@ class User implements UserInterface
     {
         if (!$this->cuestionarios->contains($cuestionario)) {
             $this->cuestionarios[] = $cuestionario;
-            $cuestionario->setUser($this);
+            $cuestionario->setAutor($this);
         }
 
         return $this;
@@ -223,8 +228,8 @@ class User implements UserInterface
     {
         if ($this->cuestionarios->removeElement($cuestionario)) {
             // set the owning side to null (unless already changed)
-            if ($cuestionario->getUser() === $this) {
-                $cuestionario->setUser(null);
+            if ($cuestionario->getAutor() === $this) {
+                $cuestionario->setAutor(null);
             }
         }
 

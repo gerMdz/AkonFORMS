@@ -11,25 +11,31 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Comment;
-use App\Entity\Post;
-use App\Entity\Tag;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use function Symfony\Component\String\u;
 
 class AppFixtures extends Fixture
 {
-    private $passwordEncoder;
-    private $slugger;
 
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder, SluggerInterface $slugger)
+    private $slugger;
+    /**
+     * @var UserPasswordHasherInterface
+     */
+    private $passwordHasher;
+
+    /**
+     * @param UserPasswordHasherInterface $passwordHasher
+     * @param SluggerInterface $slugger
+     */
+    public function __construct(UserPasswordHasherInterface $passwordHasher, SluggerInterface $slugger)
     {
-        $this->passwordEncoder = $passwordEncoder;
+
         $this->slugger = $slugger;
+        $this->passwordHasher = $passwordHasher;
     }
 
     public function load(ObjectManager $manager): void
@@ -45,7 +51,7 @@ class AppFixtures extends Fixture
             $user = new User();
             $user->setFullName($fullname);
             $user->setUsername($username);
-            $user->setPassword($this->passwordEncoder->encodePassword($user, $password));
+            $user->setPassword($this->passwordHasher->hashPassword($user, $password));
             $user->setEmail($email);
             $user->setRoles($roles);
 
