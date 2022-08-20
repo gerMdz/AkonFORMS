@@ -6,7 +6,7 @@ Akonforms Forms for you ministry
 Requirements
 ------------
 
-  * PHP 7.2.9 or higher;
+  * PHP 7.4 or higher;
   * PDO-Mysql PHP extension enabled;
   * In addition to the [usual requirements of a Symfony application][2].
 
@@ -19,13 +19,17 @@ Installation
 git clone https://github.com/gerMdz/akonforms.git
 ```
 
+#### TODO List
+- [ ] Generando entities
+  - [ ] Address
+  - [ ] Trait_article
+  [https://github.com/niallkennedy/open-graph-protocol-tools](https://github.com/niallkennedy/open-graph-protocol-tools)
+
+
 
 
 Usage
 -----
-
-
-
 
 ```bash
 $ cd akonforms/

@@ -2,7 +2,7 @@
     "type": "project",
     "license": "MIT",
     "description": "sistema de formularios",
-    "name": "aconforms/symfony",
+    "name": "germdz/aconforms",
     "authors": [
         {
             "name": "Gerardo J. Montivero gerMdz",
@@ -33,25 +33,25 @@
         "ramsey/uuid-doctrine": "^1.6",
         "sensio/framework-extra-bundle": "^5.6",
         "symfony/apache-pack": "^1.0",
-        "symfony/asset": "^5.2",
-        "symfony/console": "^5.2",
-        "symfony/dotenv": "^5.2",
-        "symfony/expression-language": "^5.2",
+        "symfony/asset": "^5.4",
+        "symfony/console": "^5.4",
+        "symfony/dotenv": "^5.4",
+        "symfony/expression-language": "^5.4",
         "symfony/flex": "^1.1",
-        "symfony/form": "^5.2",
-        "symfony/framework-bundle": "^5.2",
-        "symfony/intl": "^5.2",
-        "symfony/mailer": "^5.2",
+        "symfony/form": "^5.4",
+        "symfony/framework-bundle": "^5.4",
+        "symfony/intl": "^5.4",
+        "symfony/mailer": "^5.4",
         "symfony/monolog-bundle": "^3.1",
         "symfony/polyfill-intl-messageformatter": "^1.12",
         "symfony/security-bundle": "5.4.*",
-        "symfony/string": "^5.2",
-        "symfony/translation": "^5.2",
-        "symfony/twig-bundle": "^5.2",
-        "symfony/uid": "^5.2",
-        "symfony/validator": "^5.2",
+        "symfony/string": "^5.4",
+        "symfony/translation": "^5.4",
+        "symfony/twig-bundle": "^5.4",
+        "symfony/uid": "^5.4",
+        "symfony/validator": "^5.4",
         "symfony/webpack-encore-bundle": "^1.4",
-        "symfony/yaml": "^5.2",
+        "symfony/yaml": "^5.4",
         "tgalopin/html-sanitizer-bundle": "^1.2",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/intl-extra": "^3.0",
@@ -61,17 +61,17 @@
     "require-dev": {
         "dama/doctrine-test-bundle": "^6.2",
         "doctrine/doctrine-fixtures-bundle": "^3.0",
-        "symfony/browser-kit": "^5.2",
-        "symfony/css-selector": "^5.2",
-        "symfony/debug-bundle": "^5.2",
+        "symfony/browser-kit": "^5.4",
+        "symfony/css-selector": "^5.4",
+        "symfony/debug-bundle": "^5.4",
         "symfony/maker-bundle": "^1.11",
-        "symfony/phpunit-bridge": "^5.2",
-        "symfony/stopwatch": "^5.2",
-        "symfony/web-profiler-bundle": "^5.2"
+        "symfony/phpunit-bridge": "^5.4",
+        "symfony/stopwatch": "^5.4",
+        "symfony/web-profiler-bundle": "^5.4"
     },
     "config": {
         "platform": {
-            "php": "7.2.9"
+            "php": "7.4"
         },
         "preferred-install": {
             "*": "dist"
