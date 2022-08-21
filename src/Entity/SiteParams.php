@@ -4,6 +4,9 @@ namespace App\Entity;
 
 use App\Repository\SiteParamsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\UuidInterface;
+use Ramsey\Uuid\Doctrine\UuidGenerator;
+
 
 /**
  * @ORM\Entity(repositoryClass=SiteParamsRepository::class)
@@ -11,9 +14,12 @@ use Doctrine\ORM\Mapping as ORM;
 class SiteParams
 {
     /**
+     * @var UuidInterface
+     *
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class=UuidGenerator::class)
      */
     private $id;
 
@@ -57,7 +63,7 @@ class SiteParams
      */
     private $author;
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }

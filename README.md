@@ -21,9 +21,20 @@ git clone https://github.com/gerMdz/akonforms.git
 
 #### TODO List
 - [ ] Generando entities
-  - [ ] Address
-  - [ ] Trait_article
-  [https://github.com/niallkennedy/open-graph-protocol-tools](https://github.com/niallkennedy/open-graph-protocol-tools)
+  - [X] Address
+  - [ ] Trait_article - Pendiente [https://github.com/niallkennedy/open-graph-protocol-tools](https://github.com/niallkennedy/open-graph-protocol-tools)
+- [ ] Empezar crud Site
+  - [ ] Relación con Address 
+- [ ] Empezar crud Ministry
+  - [ ] Relación con Address
+- [ ] Empezar register y asociación Users- Ministerio
+- [ ] Empezar crud Cuestionario
+- [ ] Empezar crud Secciones
+- [ ] Empezar crud Tipo Preguntas
+- [ ] Empezar crud Preguntas
+- [ ] Empezar register usuarios distintos de operadores
+
+  
 
 
 
