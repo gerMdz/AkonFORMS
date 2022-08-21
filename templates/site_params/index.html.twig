@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SiteParams index{% endblock %}
+
+{% block body %}
+    <h1>SiteParams index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Url</th>
+                <th>Name</th>
+                <th>Email_contact</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Type</th>
+                <th>Author</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for site_param in site_params %}
+            <tr>
+                <td>{{ site_param.id }}</td>
+                <td>{{ site_param.url }}</td>
+                <td>{{ site_param.name }}</td>
+                <td>{{ site_param.emailContact }}</td>
+                <td>{{ site_param.title }}</td>
+                <td>{{ site_param.description }}</td>
+                <td>{{ site_param.image }}</td>
+                <td>{{ site_param.type }}</td>
+                <td>{{ site_param.author }}</td>
+                <td>
+                    <a href="{{ path('app_site_params_show', {'id': site_param.id}) }}">show</a>
+                    <a href="{{ path('app_site_params_edit', {'id': site_param.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_site_params_new') }}">Create new</a>
+{% endblock %}

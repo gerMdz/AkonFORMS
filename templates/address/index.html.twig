@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Address index{% endblock %}
+
+{% block body %}
+    <h1>Address index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Address_text</th>
+                <th>Address2</th>
+                <th>Address3</th>
+                <th>District</th>
+                <th>Location</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Postal_code</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for address in addresses %}
+            <tr>
+                <td>{{ address.id }}</td>
+                <td>{{ address.addressText }}</td>
+                <td>{{ address.address2 }}</td>
+                <td>{{ address.address3 }}</td>
+                <td>{{ address.district }}</td>
+                <td>{{ address.location }}</td>
+                <td>{{ address.state }}</td>
+                <td>{{ address.country }}</td>
+                <td>{{ address.city }}</td>
+                <td>{{ address.postalCode }}</td>
+                <td>{{ address.createdAt ? address.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ address.updatedAt ? address.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_address_show', {'id': address.id}) }}">show</a>
+                    <a href="{{ path('app_address_edit', {'id': address.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_address_new') }}">Create new</a>
+{% endblock %}

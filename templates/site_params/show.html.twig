@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SiteParams{% endblock %}
+
+{% block body %}
+    <h1>SiteParams</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ site_param.id }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ site_param.url }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ site_param.name }}</td>
+            </tr>
+            <tr>
+                <th>Email_contact</th>
+                <td>{{ site_param.emailContact }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ site_param.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ site_param.description }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ site_param.image }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ site_param.type }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ site_param.author }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_site_params_index') }}">back to list</a>
+
+    <a href="{{ path('app_site_params_edit', {'id': site_param.id}) }}">edit</a>
+
+    {{ include('site_params/_delete_form.html.twig') }}
+{% endblock %}

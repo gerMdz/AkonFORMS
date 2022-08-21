@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SiteParams{% endblock %}
+
+{% block body %}
+    <h1>Create new SiteParams</h1>
+
+    {{ include('site_params/_form.html.twig') }}
+
+    <a href="{{ path('app_site_params_index') }}">back to list</a>
+{% endblock %}

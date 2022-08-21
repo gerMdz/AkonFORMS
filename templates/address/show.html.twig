@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Address{% endblock %}
+
+{% block body %}
+    <h1>Address</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ address.id }}</td>
+            </tr>
+            <tr>
+                <th>Address_text</th>
+                <td>{{ address.addressText }}</td>
+            </tr>
+            <tr>
+                <th>Address2</th>
+                <td>{{ address.address2 }}</td>
+            </tr>
+            <tr>
+                <th>Address3</th>
+                <td>{{ address.address3 }}</td>
+            </tr>
+            <tr>
+                <th>District</th>
+                <td>{{ address.district }}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ address.location }}</td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td>{{ address.state }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ address.country }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ address.city }}</td>
+            </tr>
+            <tr>
+                <th>Postal_code</th>
+                <td>{{ address.postalCode }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ address.createdAt ? address.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ address.updatedAt ? address.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_address_index') }}">back to list</a>
+
+    <a href="{{ path('app_address_edit', {'id': address.id}) }}">edit</a>
+
+    {{ include('address/_delete_form.html.twig') }}
+{% endblock %}
